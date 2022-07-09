@@ -2,13 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Health diary</title>
-    <script src="../static/js/app/includeHTML.js"></script>
+    <title>Health Diary</title>
+    <script>
+        $(function(){
+            var includes = $('[data-include]');
+            jQuery.each(includes, function(){
+            var file = 'layout/' + $(this).data('include') + '.html';
+            $(this).load(file);
+            });
+        });
+    </script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
 </head>
 <body>
-    <header include-html="/layout/header.html"></header>
-    <nav include-html="/layout/nav.html"></nav>
-    <content include-html="/layout/content.html"></content>
-    <footer include-html="/layout/footer.html"></footer>
+    <div date-include="header">header</div>
+    <iframe src="./layout/header.html"></iframe>
 </body>
 </html>
