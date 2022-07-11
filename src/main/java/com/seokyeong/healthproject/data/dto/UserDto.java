@@ -8,13 +8,15 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @Builder
-public class UserDTO {
+public class UserDto {
+    private String id;
     private String name;
     private String age;
     private String sex;
 
     public UserEntity toEntity() {
         return UserEntity.builder()
+                .id(id)
                 .name(name)
                 .age(age)
                 .sex(sex)
