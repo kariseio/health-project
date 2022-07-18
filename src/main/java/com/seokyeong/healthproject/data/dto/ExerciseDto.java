@@ -1,6 +1,6 @@
 package com.seokyeong.healthproject.data.dto;
 
-import com.seokyeong.healthproject.data.entity.HealthEntity;
+import com.seokyeong.healthproject.data.entity.ExerciseEntity;
 import lombok.*;
 
 @Data
@@ -8,14 +8,14 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @Builder
-public class HealthDto {
+public class ExerciseDto {
     private String healthName;
     private int weight;
     private int count;
     private int sets;
 
-    public HealthEntity toEntity() {
-        return HealthEntity.builder()
+    public ExerciseEntity toEntity() {
+        return ExerciseEntity.builder()
                 .healthName(healthName)
                 .weight(weight)
                 .count(count)

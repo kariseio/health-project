@@ -1,6 +1,6 @@
 package com.seokyeong.healthproject.data.entity;
 
-import com.seokyeong.healthproject.data.dto.HealthDto;
+import com.seokyeong.healthproject.data.dto.ExerciseDto;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -12,7 +12,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Builder
 @Entity
-public class HealthEntity {
+public class ExerciseEntity {
     @Id
     private String healthName;
 
@@ -22,8 +22,8 @@ public class HealthEntity {
 
     private int sets;
 
-    public HealthDto toDto() {
-        return HealthDto.builder()
+    public ExerciseDto toDto() {
+        return ExerciseDto.builder()
                 .healthName(healthName)
                 .weight(weight)
                 .count(count)
