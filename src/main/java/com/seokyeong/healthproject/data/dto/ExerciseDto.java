@@ -9,17 +9,19 @@ import lombok.*;
 @ToString
 @Builder
 public class ExerciseDto {
-    private String healthName;
-    private int weight;
-    private int count;
+    private String userId;
+    private String exerciseId;
     private int sets;
+    private int weight;
+    private int times;
+
 
     public ExerciseEntity toEntity() {
         return ExerciseEntity.builder()
-                .healthName(healthName)
-                .weight(weight)
-                .count(count)
+                .exerciseId(exerciseId)
                 .sets(sets)
+                .weight(weight)
+                .times(times)
                 .build();
     }
 }

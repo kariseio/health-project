@@ -14,19 +14,19 @@ import javax.persistence.Id;
 @Entity
 public class ExerciseEntity {
     @Id
-    private String healthName;
-
-    private int weight;
-
-    private int count;
+    private String userId;
+    @Id
+    private String exerciseId;
 
     private int sets;
+    private int weight;
+    private int times;
 
     public ExerciseDto toDto() {
         return ExerciseDto.builder()
-                .healthName(healthName)
+                .exerciseId(exerciseId)
                 .weight(weight)
-                .count(count)
+                .times(times)
                 .sets(sets)
                 .build();
     }
