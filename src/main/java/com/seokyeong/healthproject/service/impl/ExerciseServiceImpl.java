@@ -5,7 +5,9 @@ import com.seokyeong.healthproject.data.entity.ExerciseEntity;
 import com.seokyeong.healthproject.handler.ExerciseDataHandler;
 import com.seokyeong.healthproject.service.ExerciseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ExerciseServiceImpl implements ExerciseService {
 
     ExerciseDataHandler exerciseDataHandler;

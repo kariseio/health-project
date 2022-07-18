@@ -18,6 +18,7 @@ public class ExerciseDto {
 
     public ExerciseEntity toEntity() {
         return ExerciseEntity.builder()
+                .userId(userId)
                 .exerciseId(exerciseId)
                 .sets(sets)
                 .weight(weight)
