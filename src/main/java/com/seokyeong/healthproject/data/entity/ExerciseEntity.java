@@ -13,7 +13,6 @@ import javax.persistence.Id;
 @Builder
 @Entity
 public class ExerciseEntity {
-    @Id
     private String userId;
     @Id
     private String exerciseId;
@@ -24,6 +23,7 @@ public class ExerciseEntity {
 
     public ExerciseDto toDto() {
         return ExerciseDto.builder()
+                .userId(userId)
                 .exerciseId(exerciseId)
                 .weight(weight)
                 .times(times)
