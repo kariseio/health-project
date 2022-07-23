@@ -8,8 +8,12 @@
         * { margin: 0; padding: 0; }
         li { list-style: none; }
 
+        {{! header }}
+        #main_header > a > #header { text-decoration: none; color: black;}
+        #main_header > a > #header:hover { text-decoration-line: none; opacity: 65%;}
+
         {{! header nav }}
-        #main_header > #header_nav { position: relative;  top: -40px; }
+        #main_header > #header_nav { position: relative;  top: -20px; right: 5px;}
         #main_header > #header_nav > ul {overflow: hidden;}
         #main_header > #header_nav > ul > li { float: right; }
         #main_header > #header_nav > ul > li > a {
@@ -25,18 +29,20 @@
         color: white;
         }
     </style>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container-fixed">
     <header id="main_header">
-        <h1>Health Diary</h1>
+        <a href="/"><h1 id="header">Health Diary</h1></a>
 
         <nav id="header_nav">
             <ul id="nav">
-                <li><a href="#">My page</a></li>
+                <li><a href="/profile">Profile</a></li>
                 <li><a href="#">Social</a></li>
-                <li><a href="#">Do Exercise</a></li>
-                <li><a href="#">Login</a></li>
+                <li><a href="/doExercise">Do Exercise</a></li>
+                <li><a href="/login">Login</a></li>
             </ul>
         </nav>
     </header>

@@ -21,4 +21,9 @@ public class IndexController {
     public String login() {
         return "login";
     }
+
+    @GetMapping(value = "/doExercise")
+    public String doExercise() {
+        return "doExercise";
+    }
 }
