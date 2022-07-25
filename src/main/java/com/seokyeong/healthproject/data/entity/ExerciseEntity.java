@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -16,17 +17,18 @@ public class ExerciseEntity {
     private String userId;
     @Id
     private String exerciseId;
-
+    private LocalDateTime date;
     private int sets;
     private int weight;
-    private int times;
+    private int reps;
 
     public ExerciseDto toDto() {
         return ExerciseDto.builder()
                 .userId(userId)
                 .exerciseId(exerciseId)
+                .date(date)
                 .weight(weight)
-                .times(times)
+                .reps(reps)
                 .sets(sets)
                 .build();
     }
