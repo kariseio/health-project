@@ -1,6 +1,12 @@
 {{>layout/header}}
-
-
+<style>
+    #loginBtn > button {
+        background-color : gray;
+        width: 40px;
+        height: 40px;
+        border-radius : 20px 20px 20px 20px;
+    }
+</style>
 
 <div class="container" align="center">
     <div class="col-md-4">
@@ -16,6 +22,13 @@
                 <input type="password" class="form-control" placeholder="Password" name='password' required>
             </div>
             <button class="btn btn btn-lg btn-success btn-block" type="submit">Login</button>
+            <br/>
+            <div id="loginBtn">
+                <button></button> &nbsp;&nbsp;&nbsp;
+                <button></button> &nbsp;&nbsp;&nbsp;
+                <button></button> &nbsp;&nbsp;&nbsp;
+                <button></button>
+            </div>
         </form>
 
     </div>
