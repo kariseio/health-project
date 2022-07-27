@@ -27,6 +27,21 @@ public class IndexController {
         return "login";
     }
 
+    @GetMapping(value = "/exercise/save")
+    public String saveExercise() {
+        return "saveExercise";
+    }
+
+    @GetMapping(value = "/exercise/update")
+    public String updateExercise() {
+        return "updateExercise";
+    }
+
+    @GetMapping(value = "/exercise/delete")
+    public String deleteExercise() {
+        return "deleteExercise";
+    }
+
     @PostMapping("/logtest")
     public void logTest() {
         LOGGER.trace("Trace log");
