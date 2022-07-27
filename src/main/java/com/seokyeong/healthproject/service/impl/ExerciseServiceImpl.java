@@ -22,21 +22,21 @@ public class ExerciseServiceImpl implements ExerciseService {
     }
 
     @Override
-    public ExerciseDto saveExercise(String userId, String exerciseId, LocalDateTime date, int sets, int weight, int reps) {
+    public ExerciseDto saveExercise(Long userId, String exerciseId, LocalDateTime date, int sets, int weight, int reps) {
         ExerciseEntity exerciseEntity = exerciseDataHandler.saveExerciseEntity(userId, exerciseId, date, sets, weight, reps);
 
         return exerciseEntity.toDto();
     }
 
     @Override
-    public ExerciseDto getExercise(String userId, String exerciseId) {
+    public ExerciseDto getExercise(Long userId, String exerciseId) {
         ExerciseEntity exerciseEntity = exerciseDataHandler.getExerciseEntity(userId, exerciseId);
 
         return exerciseEntity.toDto();
     }
 
     @Override
-    public List<ExerciseDto> getExerciseByDate(String userId, LocalDateTime date) {
+    public List<ExerciseDto> getExerciseByDate(Long userId, LocalDateTime date) {
         List<ExerciseEntity> exerciseEntityList = exerciseDataHandler.getExerciseEntityByDate(userId, date);
         List<ExerciseDto> exerciseDtoList = new ArrayList<>();
 

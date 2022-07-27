@@ -26,7 +26,7 @@ public class ExerciseController {
     // 유저의 선택한 운동 가져오기
     //http://localhost:8080/api/v1/exercise-api/exercise/{userId}/{exerciseId}
     @GetMapping(value = "/exercise/{userId}/{exerciseId}")
-    public ExerciseDto getExercise(@PathVariable String userId, @PathVariable String exerciseId) {
+    public ExerciseDto getExercise(@PathVariable Long userId, @PathVariable String exerciseId) {
 
         long startTime = System.currentTimeMillis();
         LOGGER.info("[ExerciseController] perform {} of healthproject API." , "getExercise");
@@ -42,7 +42,7 @@ public class ExerciseController {
     // 유저의 날짜 가져오기
     //http://localhost:8080/api/v1/exercise-api/exercise/{userId}/{date}
     @GetMapping(value = "/exercise/{userId}/{date}")
-    public List<ExerciseDto> getExerciseByDate(@PathVariable String userId, @PathVariable LocalDateTime date) {
+    public List<ExerciseDto> getExerciseByDate(@PathVariable Long userId, @PathVariable LocalDateTime date) {
 
         long startTime = System.currentTimeMillis();
         LOGGER.info("[ExerciseController] perform {} of healthproject API." , "getExerciseByDate");
@@ -63,7 +63,7 @@ public class ExerciseController {
         long startTime = System.currentTimeMillis();
         LOGGER.info("[ExerciseController] perform {} of healthproject API." , "saveExercise");
 
-        String userId = exerciseDto.getUserId();
+        Long userId = exerciseDto.getUserId();
         String exerciseId = exerciseDto.getExerciseId();
         LocalDateTime date = exerciseDto.getDate();
         int sets = exerciseDto.getSets();

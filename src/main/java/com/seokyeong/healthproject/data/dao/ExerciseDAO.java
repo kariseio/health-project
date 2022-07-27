@@ -8,7 +8,7 @@ import java.util.List;
 public interface ExerciseDAO {
     ExerciseEntity saveExercise(ExerciseEntity exerciseEntity);
 
-    ExerciseEntity getExercise(String userId, String exerciseId);
+    ExerciseEntity getExercise(Long userId, String exerciseId);
 
-    List<ExerciseEntity> getExerciseByDate(String userId, LocalDateTime date);
+    List<ExerciseEntity> getExerciseByDate(Long userId, LocalDateTime date);
 }

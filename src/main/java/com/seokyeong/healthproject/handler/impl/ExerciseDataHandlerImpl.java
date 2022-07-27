@@ -23,19 +23,19 @@ public class ExerciseDataHandlerImpl implements ExerciseDataHandler {
 
 
     @Override
-    public ExerciseEntity saveExerciseEntity(String userId, String exerciseId, LocalDateTime date, int sets, int weight, int times) {
+    public ExerciseEntity saveExerciseEntity(Long userId, String exerciseId, LocalDateTime date, int sets, int weight, int times) {
         ExerciseEntity exerciseEntity = new ExerciseEntity(userId, exerciseId, date, sets, weight, times);
 
         return exerciseDAO.saveExercise(exerciseEntity);
     }
 
     @Override
-    public ExerciseEntity getExerciseEntity(String userId, String exerciseId) {
+    public ExerciseEntity getExerciseEntity(Long userId, String exerciseId) {
         return exerciseDAO.getExercise(userId, exerciseId);
     }
 
     @Override
-    public List<ExerciseEntity> getExerciseEntityByDate(String userId, LocalDateTime date) {
+    public List<ExerciseEntity> getExerciseEntityByDate(Long userId, LocalDateTime date) {
         return exerciseDAO.getExerciseByDate(userId, date);
     }
 }

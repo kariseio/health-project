@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @ToString
 @Builder
 public class ExerciseDto {
-    private String userId;
+    private Long userId;
     private String exerciseId;
     private LocalDateTime date;
     private int sets;

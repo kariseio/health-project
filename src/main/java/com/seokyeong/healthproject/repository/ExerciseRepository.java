@@ -7,6 +7,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface ExerciseRepository extends JpaRepository<ExerciseEntity, String> {
-    List<ExerciseEntity> findByUserIdAndDate(String userId, LocalDateTime date);
+    List<ExerciseEntity> findByUserIdAndDate(Long userId, LocalDateTime date);
 
 }

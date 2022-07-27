@@ -6,9 +6,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface ExerciseDataHandler {
-    ExerciseEntity saveExerciseEntity(String userId, String exerciseId, LocalDateTime date, int sets, int weight, int times);
+    ExerciseEntity saveExerciseEntity(Long userId, String exerciseId, LocalDateTime date, int sets, int weight, int times);
 
-    ExerciseEntity getExerciseEntity(String userId, String exerciseId);
+    ExerciseEntity getExerciseEntity(Long userId, String exerciseId);
 
-    List<ExerciseEntity> getExerciseEntityByDate(String userId, LocalDateTime date);
+    List<ExerciseEntity> getExerciseEntityByDate(Long userId, LocalDateTime date);
 }

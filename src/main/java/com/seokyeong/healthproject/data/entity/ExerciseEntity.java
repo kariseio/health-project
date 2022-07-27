@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Builder
 @Entity
 public class ExerciseEntity {
-    private String userId;
+    private Long userId;
     @Id
     private String exerciseId;
     private LocalDateTime date;
