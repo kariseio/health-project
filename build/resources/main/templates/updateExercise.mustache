@@ -1,0 +1,43 @@
+{{>layout/header}}
+{{! 운동 목록 가져온 후 어떤 항목 업데이트 할 건지 }}
+{{! //http://localhost:8080/api/v1/exercise-api/exercise/{userId}/{exerciseId} - 유저 운동 가져오기 API}}
+
+<div class="container">
+    <h2>Exercise Update</h2>
+
+    {{#exercise}}
+        <form method="post" action="/exercise/{{id}}">
+            <!--Exercise-->
+            <div class="form-group">
+                <label for="exerciseName">Exercise</label>
+                <input class="form-control" id="exerciseName" name="exerciseName" value="{{exerciseName}}">
+            </div>
+
+            <!--Weight-->
+            <div class="form-group">
+                <label for="weight">Weight</label>
+                <input class="form-control" id="weight" name="weight" value="{{weight}}">
+            </div>
+
+            <!--Reps-->
+            <div class="form-group">
+                <label for="reps">Reps</label>
+                <input class="form-control" id="reps" name="reps" value="{{reps}}">
+            </div>
+
+            <!--Sets-->
+            <div class="form-group">
+                <label for="sets">Sets</label>
+                <input class="form-control" id="sets" name="sets" value="{{sets}}">
+            </div>
+
+            <button type="submit"
+                    class="btn btn-success clearfix pull-right">
+                운동정보수정
+            </button>
+            <div class="clearfix" />
+        </form>
+    {{/exercise}}
+</div>
+
+{{>layout/footer}}
