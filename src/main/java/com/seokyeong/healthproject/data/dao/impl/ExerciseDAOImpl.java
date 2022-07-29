@@ -6,7 +6,7 @@ import com.seokyeong.healthproject.repository.ExerciseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -33,7 +33,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
     }
 
     @Override
-    public List<ExerciseEntity> getExerciseByDate(Long userId, LocalDateTime date) {
+    public List<ExerciseEntity> getExerciseByDate(Long userId, LocalDate date) {
         List<ExerciseEntity> exerciseEntityList = exerciseRepository.findByUserIdAndDate(userId, date);
 //        ExerciseEntity exerciseEntity = exerciseRepository.findByUserIdAndDate(userId, date);
 

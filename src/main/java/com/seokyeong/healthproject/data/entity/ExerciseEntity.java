@@ -5,7 +5,7 @@ import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -17,7 +17,7 @@ public class ExerciseEntity {
     private Long userId;
     @Id
     private String exerciseId;
-    private LocalDateTime date;
+    private LocalDate date;
     private int sets;
     private int weight;
     private int reps;

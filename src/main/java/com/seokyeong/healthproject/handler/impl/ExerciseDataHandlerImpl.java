@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -23,7 +23,7 @@ public class ExerciseDataHandlerImpl implements ExerciseDataHandler {
 
 
     @Override
-    public ExerciseEntity saveExerciseEntity(Long userId, String exerciseId, LocalDateTime date, int sets, int weight, int times) {
+    public ExerciseEntity saveExerciseEntity(Long userId, String exerciseId, LocalDate date, int sets, int weight, int times) {
         ExerciseEntity exerciseEntity = new ExerciseEntity(userId, exerciseId, date, sets, weight, times);
 
         return exerciseDAO.saveExercise(exerciseEntity);
@@ -35,7 +35,7 @@ public class ExerciseDataHandlerImpl implements ExerciseDataHandler {
     }
 
     @Override
-    public List<ExerciseEntity> getExerciseEntityByDate(Long userId, LocalDateTime date) {
+    public List<ExerciseEntity> getExerciseEntityByDate(Long userId, LocalDate date) {
         return exerciseDAO.getExerciseByDate(userId, date);
     }
 }

@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -21,6 +21,27 @@ public class ExerciseController {
     @Autowired
     public ExerciseController(ExerciseService exerciseService) {
         this.exerciseService = exerciseService;
+    }
+
+    // 운동 저장
+    //http://localhost:8080/api/v1/exercise-api/
+    @PostMapping(value = "/exercise")
+    public ExerciseDto saveExercise(@RequestBody ExerciseDto exerciseDto) {
+
+        long startTime = System.currentTimeMillis();
+        LOGGER.info("[ExerciseController] perform {} of healthproject API." , "saveExercise");
+
+        Long userId = exerciseDto.getUserId();
+        String exerciseId = exerciseDto.getExerciseId();
+        LocalDate date = exerciseDto.getDate();
+        int sets = exerciseDto.getSets();
+        int weight = exerciseDto.getWeight();
+        int reps = exerciseDto.getReps();
+
+        LOGGER.info("[ExerciseController] Response :: userId = {}, exerciseId = {}, date = {}, sets = {}, weight = {}, times = {}, Response Time = {}ms",
+                userId, exerciseId, date, sets, weight, reps, (System.currentTimeMillis() - startTime));
+
+        return exerciseService.saveExercise(userId, exerciseId, date, sets, weight, reps);
     }
 
     // 유저의 선택한 운동 가져오기
@@ -42,7 +63,7 @@ public class ExerciseController {
     // 유저의 날짜 가져오기
     //http://localhost:8080/api/v1/exercise-api/exercise/{userId}/{date}
     @GetMapping(value = "/exercise/{userId}/{date}")
-    public List<ExerciseDto> getExerciseByDate(@PathVariable Long userId, @PathVariable LocalDateTime date) {
+    public List<ExerciseDto> getExerciseByDate(@PathVariable Long userId, @PathVariable LocalDate date) {
 
         long startTime = System.currentTimeMillis();
         LOGGER.info("[ExerciseController] perform {} of healthproject API." , "getExerciseByDate");
@@ -55,26 +76,6 @@ public class ExerciseController {
         return exerciseDtoList;
     }
 
-    // 운동 저장
-    //http://localhost:8080/api/v1/exercise-api/exercise
-    @GetMapping(value = "/exercise")
-    public ExerciseDto saveExercise(@RequestBody ExerciseDto exerciseDto) {
-
-        long startTime = System.currentTimeMillis();
-        LOGGER.info("[ExerciseController] perform {} of healthproject API." , "saveExercise");
-
-        Long userId = exerciseDto.getUserId();
-        String exerciseId = exerciseDto.getExerciseId();
-        LocalDateTime date = exerciseDto.getDate();
-        int sets = exerciseDto.getSets();
-        int weight = exerciseDto.getWeight();
-        int reps = exerciseDto.getReps();
-
-        LOGGER.info("[ExerciseController] Response :: userId = {}, exerciseId = {}, date = {}, sets = {}, weight = {}, times = {}, Response Time = {}ms",
-                userId, exerciseId, date, sets, weight, reps, (System.currentTimeMillis() - startTime));
-
-        return exerciseService.saveExercise(userId, exerciseId, date, sets, weight, reps);
-    }
 
 //    public ExerciseDto updateExercise() {
 //
