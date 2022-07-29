@@ -78,7 +78,7 @@ public class ExerciseControllerTest {
                 .build();
 
 //        String url = "http://localhost:" + port + "/api/v1/exercise-api/";
-        String url = "http://localhost:" + port + "/api/v1/exercise-api/exercise";
+        String url = "http://localhost:" + port + "/api/v1/exercise-api/ㄴ";
 
 
         // when
@@ -92,6 +92,5 @@ public class ExerciseControllerTest {
         List<ExerciseEntity> all = exerciseRepository.findAll();
         assertThat(all.get(0).getUserId()).isEqualTo(userId);
         assertThat(all.get(0).getExerciseId()).isEqualTo(exerciseId);
-
     }
 }

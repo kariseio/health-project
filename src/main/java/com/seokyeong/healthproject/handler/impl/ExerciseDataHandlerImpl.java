@@ -30,7 +30,12 @@ public class ExerciseDataHandlerImpl implements ExerciseDataHandler {
     }
 
     @Override
-    public ExerciseEntity getExerciseEntity(Long userId, String exerciseId) {
+    public List<ExerciseEntity> getAllExerciseEntity(Long userId) {
+        return exerciseDAO.getAllExercise(userId);
+    }
+
+    @Override
+    public List<ExerciseEntity> getExerciseEntity(Long userId, String exerciseId) {
         return exerciseDAO.getExercise(userId, exerciseId);
     }
 
