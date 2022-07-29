@@ -29,6 +29,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -78,20 +79,20 @@ public class ExerciseControllerTest {
                 .build();
 
 //        String url = "http://localhost:" + port + "/api/v1/exercise-api/";
-        String url = "http://localhost:" + port + "/api/v1/exercise-api/exercise";
+        String url = "http://localhost:" + port + "/api/v1/exercise-api/";
 
 
         // when
         mvc.perform(post(url)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(new ObjectMapper().registerModule(new JavaTimeModule()).writeValueAsString(exerciseDto)))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(print());
 
 
         // then
         List<ExerciseEntity> all = exerciseRepository.findAll();
         assertThat(all.get(0).getUserId()).isEqualTo(userId);
         assertThat(all.get(0).getExerciseId()).isEqualTo(exerciseId);
-
     }
 }

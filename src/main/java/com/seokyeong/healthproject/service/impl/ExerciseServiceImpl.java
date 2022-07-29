@@ -29,10 +29,27 @@ public class ExerciseServiceImpl implements ExerciseService {
     }
 
     @Override
-    public ExerciseDto getExercise(Long userId, String exerciseId) {
-        ExerciseEntity exerciseEntity = exerciseDataHandler.getExerciseEntity(userId, exerciseId);
+    public List<ExerciseDto> getAllExercise(Long userId) {
+        List<ExerciseEntity> exerciseEntityList = exerciseDataHandler.getAllExerciseEntity(userId);
+        List<ExerciseDto> exerciseDtoList = new ArrayList<>();
 
-        return exerciseEntity.toDto();
+        for(ExerciseEntity exerciseEntity : exerciseEntityList) {
+            exerciseDtoList.add(exerciseEntity.toDto());
+        }
+
+        return exerciseDtoList;
+    }
+
+    @Override
+    public List<ExerciseDto> getExercise(Long userId, String exerciseId) {
+        List<ExerciseEntity> exerciseEntityList = exerciseDataHandler.getExerciseEntity(userId, exerciseId);
+        List<ExerciseDto> exerciseDtoList = new ArrayList<>();
+
+        for(ExerciseEntity exerciseEntity : exerciseEntityList) {
+            exerciseDtoList.add(exerciseEntity.toDto());
+        }
+
+        return exerciseDtoList;
     }
 
     @Override
