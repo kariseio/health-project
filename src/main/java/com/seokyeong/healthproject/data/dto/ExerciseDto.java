@@ -3,7 +3,7 @@ package com.seokyeong.healthproject.data.dto;
 import com.seokyeong.healthproject.data.entity.ExerciseEntity;
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -11,9 +11,9 @@ import java.time.LocalDateTime;
 @ToString
 @Builder
 public class ExerciseDto {
-    private String userId;
+    private Long userId;
     private String exerciseId;
-    private LocalDateTime date;
+    private LocalDate date;
     private int sets;
     private int weight;
     private int reps;

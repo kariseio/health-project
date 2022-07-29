@@ -1,35 +1,22 @@
 {{>layout/header}}
+
 <div class="container">
     <h2>Exercise Registration</h2>
-    <form>
-        <div class="col-md-6">
-            운동 이름
+    <form action="" method="post">
+        <div class="col-md-3">
             <select id="exerciseName">
                 <option>push up</option>
                 <option>pull up</option>
                 <option>sit up</option>
                 <option>barbell curl</option>
-            </select><br/>
-            무게
-            <input type="text" id="weight" style="width:50px;">kg
-            <br/>
-            횟수
-            <select id="reps">
+            </select>
+            <select id="exerciseReps">
                 <option>5</option>
                 <option>10</option>
                 <option>15</option>
                 <option>20</option>
-            </select><br/>
-            세트
-            <select id="sets">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
             </select>
         </div>
-        <button type="button" class="btn btn-primary" id="btn-save">OK</button>
     </form>
 </div>
 
