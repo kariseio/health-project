@@ -27,14 +27,14 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 
     @Override
     public List<ExerciseEntity> getAllExercise(Long userId) {
-        List<ExerciseEntity> exerciseEntityList = exerciseRepository.findByUser(userId);
+        List<ExerciseEntity> exerciseEntityList = exerciseRepository.findByUserId(userId);
 
         return exerciseEntityList;
     }
 
     @Override
     public List<ExerciseEntity> getExercise(Long userId, String exerciseId) {
-        List<ExerciseEntity> exerciseEntityList = exerciseRepository.findByUserAndExercise(userId, exerciseId);
+        List<ExerciseEntity> exerciseEntityList = exerciseRepository.findByUserIdAndExerciseId(userId, exerciseId);
 
         return exerciseEntityList;
     }

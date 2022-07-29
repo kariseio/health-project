@@ -27,9 +27,9 @@ public class ExerciseEntity {
                 .userId(userId)
                 .exerciseId(exerciseId)
                 .date(date)
+                .sets(sets)
                 .weight(weight)
                 .reps(reps)
-                .sets(sets)
                 .build();
     }
 }
