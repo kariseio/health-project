@@ -1,7 +1,6 @@
 package com.seokyeong.healthproject.controller;
 
 import com.seokyeong.healthproject.config.auth.dto.SessionUser;
-import com.seokyeong.healthproject.service.ExerciseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

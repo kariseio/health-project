@@ -1,9 +1,7 @@
 package com.seokyeong.healthproject.data.dto;
 
-import com.seokyeong.healthproject.data.entity.UserEntity;
+import com.seokyeong.healthproject.data.entity.User;
 import lombok.*;
-
-import javax.persistence.Column;
 
 @Data
 @NoArgsConstructor
@@ -11,21 +9,21 @@ import javax.persistence.Column;
 @ToString
 @Builder
 public class UserDto {
-    private Long id;
-    private String name;
-    private String email;
-    private String picture;
-    private String age;
-    private String sex;
+    private Long id; // 유저 아이디
+    private String name; // 이름
+    private String email; // 이메일
+    private String picture; // 사진
+    private String age; // 나이
+    private String gender; // 성별
 
-    public UserEntity toEntity() {
-        return UserEntity.builder()
-//                .id(id)
+    public User toEntity() {
+        return User.builder()
+                .id(id)
                 .name(name)
                 .email(email)
                 .picture(picture)
-//                .age(age)
-//                .sex(sex)
+                .age(age)
+                .gender(gender)
                 .build();
     }
 }

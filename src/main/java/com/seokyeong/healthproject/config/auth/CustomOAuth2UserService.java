@@ -2,7 +2,7 @@ package com.seokyeong.healthproject.config.auth;
 
 import com.seokyeong.healthproject.config.auth.dto.OAuthAttributes;
 import com.seokyeong.healthproject.config.auth.dto.SessionUser;
-import com.seokyeong.healthproject.data.entity.UserEntity;
+import com.seokyeong.healthproject.data.entity.User;
 import com.seokyeong.healthproject.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -34,7 +34,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
         OAuthAttributes attributes = OAuthAttributes.of(registrationId, userNameAttributeName, oAuth2User.getAttributes());
 
-        UserEntity user = saveOrUpdate(attributes);
+        User user = saveOrUpdate(attributes);
         httpSession.setAttribute("user", new SessionUser(user));
 
         return new DefaultOAuth2User(
@@ -44,8 +44,8 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
     }
 
 
-    private UserEntity saveOrUpdate(OAuthAttributes attributes) {
-        UserEntity user = userRepository.findByEmail(attributes.getEmail())
+    private User saveOrUpdate(OAuthAttributes attributes) {
+        User user = userRepository.findByEmail(attributes.getEmail())
                 .map(entity -> entity.update(attributes.getName(), attributes.getPicture()))
                 .orElse(attributes.toEntity());
 

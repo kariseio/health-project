@@ -1,7 +1,7 @@
 package com.seokyeong.healthproject.config.auth.dto;
 
 import com.seokyeong.healthproject.data.entity.Role;
-import com.seokyeong.healthproject.data.entity.UserEntity;
+import com.seokyeong.healthproject.data.entity.User;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -54,8 +54,8 @@ public class OAuthAttributes {
                 .build();
     }
 
-    public UserEntity toEntity() {
-        return UserEntity.builder()
+    public User toEntity() {
+        return User.builder()
                 .name(name)
                 .email(email)
                 .picture(picture)

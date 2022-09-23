@@ -9,34 +9,35 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-//@Builder
+@Builder
 @Entity
-public class UserEntity {
+@Table(name="users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; // 유저 아이디
 
     @Column(nullable = false)
-    private String name;
+    private String name; // 이름
 
     @Column(nullable = false)
-    private String email;
+    private String email; // 이메일 
 
     @Column
-    private String picture;
+    private String picture; // 사진
 
     @Column
-    private String age;
+    private String age; // 나이
 
     @Column
-    private String sex;
+    private String gender; // 성별
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Role role;
+    private Role role; // 역할
 
     @Builder
-    public UserEntity(String name, String email, String picture, Role role) {
+    public User(String name, String email, String picture, Role role) { // 로그인용 생성자
         this.name = name;
         this.email = email;
         this.picture = picture;
@@ -49,19 +50,19 @@ public class UserEntity {
                 .name(name)
                 .email(email)
                 .picture(picture)
-//                .age(age)
-//                .sex(sex)
+                .age(age)
+                .gender(gender)
                 .build();
     }
 
-    public UserEntity update(String name, String picture) {
+    public User update(String name, String picture) { // 업데이트
         this.name = name;
         this.picture = picture;
 
         return this;
     }
 
-    public String getRoleKey() {
+    public String getRoleKey() { // 역할 가져오기
         return this.role.getKey();
     }
 }

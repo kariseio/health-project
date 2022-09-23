@@ -1,6 +1,6 @@
 package com.seokyeong.healthproject.config.auth.dto;
 
-import com.seokyeong.healthproject.data.entity.UserEntity;
+import com.seokyeong.healthproject.data.entity.User;
 import lombok.Getter;
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ public class SessionUser implements Serializable {
     private String email;
     private String picture;
 
-    public SessionUser(UserEntity user) {
+    public SessionUser(User user) {
         this.name = user.getName();
         this.email = user.getEmail();
         this.picture = user.getPicture();

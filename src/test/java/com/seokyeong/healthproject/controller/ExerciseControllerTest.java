@@ -2,11 +2,9 @@ package com.seokyeong.healthproject.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.seokyeong.healthproject.data.dto.ExerciseDto;
-import com.seokyeong.healthproject.data.entity.ExerciseEntity;
-import com.seokyeong.healthproject.repository.ExerciseRepository;
-import com.seokyeong.healthproject.service.ExerciseService;
-import com.seokyeong.healthproject.service.impl.ExerciseServiceImpl;
+import com.seokyeong.healthproject.data.dto.ExerciseHistoryDto;
+import com.seokyeong.healthproject.data.entity.ExerciseHistory;
+import com.seokyeong.healthproject.repository.ExerciseHistoryRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,7 +19,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import javax.persistence.Id;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -43,7 +40,7 @@ public class ExerciseControllerTest {
     private TestRestTemplate restTemplate;
 
     @Autowired
-    private ExerciseRepository exerciseRepository;
+    private ExerciseHistoryRepository exerciseHistoryRepository;
 
     @Autowired
     private WebApplicationContext context;
@@ -65,31 +62,31 @@ public class ExerciseControllerTest {
         Long userId = 1234L;
         String exerciseId = "홍길동";
         LocalDate date = LocalDate.of(2022, 7, 28);
-        int sets = 10;
+        int set = 10;
         int weight = 100;
-        int reps = 5;
-        ExerciseDto exerciseDto = ExerciseDto.builder()
+        int rep = 5;
+        ExerciseHistoryDto exerciseHistoryDto = ExerciseHistoryDto.builder()
                 .userId(userId)
                 .exerciseId(exerciseId)
                 .date(date)
-                .sets(sets)
+                .set(set)
                 .weight(weight)
-                .reps(reps)
+                .rep(rep)
                 .build();
 
 //        String url = "http://localhost:" + port + "/api/v1/exercise-api/";
-        String url = "http://localhost:" + port + "/api/v1/exercise-api/exercise";
+        String url = "http://localhost:" + port + "/api/v1/exercise-api/";
 
 
         // when
         mvc.perform(post(url)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(new ObjectMapper().registerModule(new JavaTimeModule()).writeValueAsString(exerciseDto)))
+                .content(new ObjectMapper().registerModule(new JavaTimeModule()).writeValueAsString(exerciseHistoryDto)))
                 .andExpect(status().isOk());
 
 
         // then
-        List<ExerciseEntity> all = exerciseRepository.findAll();
+        List<ExerciseHistory> all = exerciseHistoryRepository.findAll();
         assertThat(all.get(0).getUserId()).isEqualTo(userId);
         assertThat(all.get(0).getExerciseId()).isEqualTo(exerciseId);
 
